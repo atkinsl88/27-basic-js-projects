@@ -45,14 +45,41 @@ const job = document.getElementById('job')
 const info = document.getElementById('info')
 
 // Select all of the buttons
-const prevBtn = document.querySelector('prev-btn')
-const nextBtn = document.querySelector('next-btn')
+const prevBtn = document.querySelector('.prev-btn')
+const nextBtn = document.querySelector('.next-btn')
 
 // Setup the value of 0 which represents the firts value in the array.
 let currentItem = 0
 
 // Load initial item
-// DOMContentLoaded fires when page has loaded
+// DOMContentLoaded fires when all other scripts have loaded
 window.addEventListener('DOMContentLoaded', function() {
-  console.log('Shake and bake')
+  showPerson(currentItem)
+})
+
+// Show person based on item
+function showPerson(person) {
+  const item = reviews[person];
+  img.src = item.img;
+  author.textContent = item.name;
+  job.textContent = item.job;
+  info.textContent = item.text;
+}
+
+// Show next person
+nextBtn.addEventListener('click', function () {
+  currentItem++
+  if (currentItem > reviews.length - 1) {
+    currentItem = 0
+  }
+  showPerson(currentItem)
+})
+
+// Show prev person
+prevBtn.addEventListener('click', function () {
+  currentItem--
+  if (currentItem < 0) {
+    currentItem = reviews.length - 1
+  }
+  showPerson(currentItem)
 })
