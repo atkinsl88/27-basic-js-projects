@@ -1,0 +1,15 @@
+.section-center {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.menu-item {
+  border: 1px solid black;
+  margin: 1rem;
+  padding: 1rem;
+  max-width: 300px;
+}
+
+.menu-item img {
+  max-width: 100%;
+}
